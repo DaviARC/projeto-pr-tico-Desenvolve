@@ -1,0 +1,33 @@
+footer{
+    background-color: var(--verde-escuro);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--cinza-claro);
+}
+.lista-footer{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.texto-footer{
+    padding: 10px 0;
+    font-size: 12px;
+    text-align: center;
+}
+.img-cont{
+    width: 20px;
+}
+.contato-footer{
+    font-size: 14px;
+    
+}
+.img-footer{
+    width: 25px;
+}
+.contato-footer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

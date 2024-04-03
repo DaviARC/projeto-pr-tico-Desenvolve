@@ -1,0 +1,26 @@
+@import url(reset.css);
+@import url(components/header.css);
+@import url(components/main.css);
+@import url(components/footer.css);
+@import url(components/container-produto.css);
+@import url(components/carrosel.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+
+:root{
+    --verde-escuro:#3f6745;
+    --cinza-escuro:#606869;
+    --cinza:#e4e4e4;
+    --cinza-claro:#f5f4f0;
+    --laranja:#f19f55;
+    --preto:#000000;
+}
+body, html{
+    width: 100%;
+}        
+body{
+    background-color: var(--cinza-claro);
+    font-family: "Poppins", sans-serif;
+    position: relative;
+}
+

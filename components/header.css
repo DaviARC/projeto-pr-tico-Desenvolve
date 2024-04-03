@@ -1,0 +1,148 @@
+header{
+    width: 100%;
+}
+.cont-header{
+    background-color: var(--cinza);
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-header{
+    width: 30px;
+}
+.cont-logo{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 180px;
+
+}
+.titulo-logo{
+    font-size:25px;
+    border-bottom:1px solid;
+    font-weight: 600;
+}
+.texto-logo{
+    border-bottom:1px solid;
+    font-weight: 400;
+    font-size: 10px;
+}
+.carrinho-header{
+    height: 30px;
+}
+.quantidade-carrinho{
+    position: absolute;
+    top: 44px;
+    right:10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--verde-escuro);
+}
+.cont-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    background-color: var(--cinza);
+    z-index: 1;
+    display: block;
+    display: none;
+}
+.lista-nav{
+    top: 25%;
+    display: block;
+    position: fixed;
+}  
+.sombra{
+    width: 30%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--preto);
+    opacity: 60%; 
+    top: 0;
+    right: 0;
+    display: block;
+    z-index: 1;
+    display: none;
+}
+.menu-fechado{
+    top: 0;
+    right: 30%;
+    width: 50px;
+    padding: 10px;
+    position: fixed;
+}
+.mobile, .item-nav, .item-nav-prod{
+    padding: 15px;
+}
+.item-nav-a{
+    color: var(--preto);
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--laranja);
+    padding: 5px;
+}
+.item-nav-produtos{
+    display: none;
+}
+.open{
+    display: block;
+}
+.lista-hover-desktop{
+    display: none;
+}
+.nav{display: none;}
+@media screen and (min-width : 1024px){
+    header{
+        width: 100%;
+        background-color: var(--cinza);
+        display: flex;
+        justify-content: center;
+    }
+    .nav{
+        display: block;
+    }
+    .menu-header{
+        display: none;
+    }
+    .cont-header{   
+        width: 900px;
+    }
+    .lista-nav{
+        display: flex;
+        gap: 40px;
+        align-items: center;
+    }  
+    .item-nav-produtos{
+        display: block;
+    }
+    .home{
+        border-top: 1px solid var(--laranja);
+        border-bottom: 1px solid var(--laranja);
+    }
+    .mobile{
+        display: none;
+    }
+    .lista-hover-desktop{
+        display:flex;
+        position: relative;
+    }
+    .item-desktop-hover{
+        position: absolute;
+        top: 40px;
+        left: 24%;
+        z-index: 1;
+        display: none;
+    }
+    .item-nav-desk{
+        text-decoration: none;
+        color: var(--preto);
+    }
+    .item-hover{
+        padding: 10px;
+        background-color: var(--cinza);  
+    }
+
+}

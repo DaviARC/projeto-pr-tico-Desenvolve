@@ -1,0 +1,17 @@
+.carrosel{
+    width: 600px;
+    margin: auto;
+    padding: 40px 0;
+    background-color: var(--cinza);
+}
+.swiper-slide .cont-prod{
+    width: 140px;
+}
+.swiper-button-prev, .swiper-button-next{
+    display: none;
+}
+@media screen and (min-width:1024px) {
+    .carrosel{
+        background-color: transparent;
+    }
+}
