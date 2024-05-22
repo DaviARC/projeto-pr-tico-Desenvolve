@@ -118,9 +118,16 @@ header{
     .item-nav-produtos{
         display: block;
     }
-    .home{
-        border-top: 1px solid var(--laranja);
-        border-bottom: 1px solid var(--laranja);
+    .carrinho-assets{
+        position: relative;
+    }
+    .quantidade-carrinho{
+        top:20px;
+        left:25px;
+    }
+    .active-nav{
+        border-top: 2px solid var(--laranja);
+        border-bottom: 2px solid var(--laranja);
     }
     .mobile{
         display: none;
@@ -132,7 +139,7 @@ header{
     .item-desktop-hover{
         position: absolute;
         top: 40px;
-        left: 24%;
+        left: 25%;
         z-index: 1;
         display: none;
     }
@@ -141,7 +148,7 @@ header{
         color: var(--preto);
     }
     .item-hover{
-        padding: 10px;
+        padding:5px;
         background-color: var(--cinza);  
     }
 

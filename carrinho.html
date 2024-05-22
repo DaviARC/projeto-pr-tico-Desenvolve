@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beleza In</title>
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="components/carrinho.css">
+</head>
+<body>
+    <div class="content">
+    <header>
+        <div class="cont-header">
+            <img class="menu-header" src="assets/menu.png">
+            <div class="cont-logo">
+                <div class="titulo-logo">Beleza In</div>
+                <div class="texto-logo">Inove na sua rotina de beleza.</div>
+            </div>
+            <div class="sombra"></div>
+            <nav class="nav">
+                <div class="cont-nav">
+                    <img class="menu-fechado" src="assets/menu-fechado.png">
+                    <ul class="lista-nav">
+                        <li class="item-nav home"><a class="item-nav-a" href="index.html">HOME</a></li>
+                        <li class="item-nav-produtos"><a class="item-nav-a" href="#">PRODUTOS</a></li>
+                        <li class="item-nav mobile"><a class="item-nav-a" href="#">PERFUME</a></li>
+                        <li class="item-nav mobile"><a class="item-nav-a" href="#">MAQUIAGEM</a></li>
+                        <li class="item-nav mobile"><a class="item-nav-a" href="#">SKIN CARE</a></li>
+                        <li class="item-nav"><a class="item-nav-a" href="#">FALE CONOSCO</a></li>
+                    </ul>
+                </div>
+                <ul class="lista-hover-desktop">
+                    <li class="item-nav home"><a href="index.html" class="item-nav-desk">HOME</a></li>
+                    <li class="item-nav-prod"><a href="#" class="item-nav-desk">
+                        PRODUTOS
+                    </a>
+                        <ul class="item-desktop-hover">
+                            <li class="item-hover"><a class="item-nav-desk" href="#">PERFUME</a></li>
+                            <li class="item-hover"><a class="item-nav-desk" href="#">MAQUIAGEM</a></li>
+                            <li class="item-hover"><a class="item-nav-desk" href="#">SKIN CARE</a></li>
+                        </ul>
+                    </li class="item-nav">
+                    <li class="item-nav"><a href="#" class="item-nav-desk">FALE CONOSCO</a></li>
+                </ul>
+            </nav>
+                <div>
+                    <a href="carrinho.html"><img class="carrinho-header active-nav" src="assets/carrinho.png"></a>
+                    <p class="quantidade-carrinho"></p>
+                </div>
+        </div>
+    </header>
+    <main>
+        <div class="cont-section carrinho">
+            <div class="cont-itens-carrinho">
+            </div>
+            <div class="preco-total">
+                <div class="total-carrinho-texto">
+                    <div class="total-texto">TOTAL</div>
+                    <div class="total-preco">$--,--</div>
+                </div>
+                <button class="button-prod button-prod-maior">Finalizar compra</button>
+            </div>
+        </div>
+    </main>
+    </div>
+    <footer class="footer-carrinho">
+            <p class="texto-footer">Contato</p>
+            <p class="contato-footer"><img class="img-cont" src="assets/whatsapp.png">00 0000-0000</p>
+            <p class="contato-footer"><img class="img-cont" src="assets/e-mail.png">aaaaaa@gmail.com.br</p>
+            <p class="texto-footer">Siga a Beleza In</p>
+            <ul class="lista-footer">
+                <li><a href="#"><img class="img-footer" src="assets/facebook.png"></a></li>
+                <li><a href="#"><img class="img-footer" src="assets/instagram.png"></a></li>
+                <li><a href="#"><img class="img-footer" src="assets/twitter.png"></a></li>
+            </ul>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="index.js"></script>
+    <script src="carrinho.js"></script>
+</body>
+</html>

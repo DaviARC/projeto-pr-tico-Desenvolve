@@ -5,7 +5,59 @@ let menuFechado = document.querySelector(".menu-fechado");
 let menuHeader = document.querySelector(".menu-header");
 
 let itemNav = document.querySelector(".item-nav-prod");
-let hover = document.querySelector(".item-desktop-hover")
+let hover = document.querySelector(".item-desktop-hover");
+let quantidadeCarrinho = document.querySelector('.quantidade-carrinho');
+
+let buttonColocaCarrinho = document.querySelectorAll('.button-prod')
+
+let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+
+
+atualizQuantidadeCarrinho()
+
+function atualizQuantidadeCarrinho(){
+    let quantidadeTotal = 0
+    produtos.forEach(produtoArray => {
+        console.log(produtoArray.quantidade)
+        quantidadeTotal += parseInt(produtoArray.quantidade)
+    })
+    quantidadeCarrinho.textContent = quantidadeTotal;
+}
+
+buttonColocaCarrinho.forEach(button => {
+    button.addEventListener('click', ()=>{
+        let imagem;
+        if(button.classList.contains('button-prod-maior')){
+            imagem = button.parentNode.parentNode.querySelector('.img-prod-maior')
+        } else {
+            imagem = button.parentNode.querySelector('.img-prod')
+        }
+        const produto = {
+            nome: button.parentNode.querySelector('.nome-prod').textContent,
+            preco: button.parentNode.querySelector('.preco-prod').textContent, 
+            src: `./${imagem.getAttribute('src')}`,
+            quantidade: 1
+        }
+        verificaProduto(produto)
+        })
+})
+function verificaProduto(produto){
+    let aux = false;
+    produtos.forEach(produtoArray => {
+        if(produtoArray.nome === produto.nome)
+        {
+            produtoArray.quantidade ++;
+            aux = true;
+        }
+    })
+    if(!aux){
+        produtos.push(produto)
+    } 
+
+    atualizQuantidadeCarrinho()
+
+    localStorage.setItem('produtos', JSON.stringify(produtos));
+}
 
 function verificaOpen(){
     if(lista.classList.contains('open')){

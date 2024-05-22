@@ -22,6 +22,9 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.right-cont{
+    flex-direction: row-reverse;
+}
 .img-prod-maior{
     width: 200px;   
     position: absolute;
@@ -42,24 +45,14 @@
     font-weight: 600;
     padding: 0 10px;
 }
-.preco-prod-maior{
-    padding: 10px;
-    width:60px;
-    font-size: 18px;
-}
 .button-prod-maior{
+    width: 90%;
+    margin: 0 5%;
     padding: 10px;
     border: none;
     border-radius: 10px;
     border: 3px solid var(--cinza);
 }
-.button-prod-maior:hover{
-    transition: 0.5s;
-    cursor: pointer;
-    background-color: var(--cinza);
-    font-weight: 700;
-}
-
 .img-prod{
     width: 100px;
     height: 120px;
@@ -72,19 +65,39 @@
     border: 1px solid var(--cinza);
     width: 50px;
 }
+.preco-prod-maior{
+    padding: 10px;
+    width:70px;
+    font-size: 18px;
+}
 .preco-cinza{
     border: 1px solid var(--cinza-claro);
 }
 .button-prod{
+    width: 90%;
+    margin: 0 5%;
     border-radius: 10px;
     padding: 8px;
     border: none;
     border: 2px solid var(--cinza);
+    height: 55px;
 }
 .button-prod:hover{
+    transition:0.4s;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
     cursor: pointer;
     background-color: var(--cinza-claro);
     font-weight: 700; 
+}
+.button-prod-maior:hover{
+    transition:0.4s;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    font-weight: 700; 
+    background-color: var(--cinza);
 }
 .button-cinza:hover{
     background-color: var(--cinza-claro);

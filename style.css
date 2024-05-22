@@ -15,12 +15,17 @@
     --laranja:#f19f55;
     --preto:#000000;
 }
-body, html{
-    width: 100%;
-}        
-body{
+body, html {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
     background-color: var(--cinza-claro);
     font-family: "Poppins", sans-serif;
     position: relative;
 }
-
+.content {
+    flex: 1;
+}
