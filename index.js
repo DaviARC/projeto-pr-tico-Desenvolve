@@ -8,39 +8,42 @@ let itemNav = document.querySelector(".item-nav-prod");
 let hover = document.querySelector(".item-desktop-hover");
 let quantidadeCarrinho = document.querySelector('.quantidade-carrinho');
 
-let buttonColocaCarrinho = document.querySelectorAll('.button-prod')
-
 let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
 
-
+adicionaProdutosECategorias(adicionaEventorColocarCarrinho);
 atualizQuantidadeCarrinho()
 
 function atualizQuantidadeCarrinho(){
     let quantidadeTotal = 0
     produtos.forEach(produtoArray => {
-        console.log(produtoArray.quantidade)
         quantidadeTotal += parseInt(produtoArray.quantidade)
     })
     quantidadeCarrinho.textContent = quantidadeTotal;
 }
 
-buttonColocaCarrinho.forEach(button => {
-    button.addEventListener('click', ()=>{
-        let imagem;
-        if(button.classList.contains('button-prod-maior')){
-            imagem = button.parentNode.parentNode.querySelector('.img-prod-maior')
-        } else {
-            imagem = button.parentNode.querySelector('.img-prod')
-        }
-        const produto = {
-            nome: button.parentNode.querySelector('.nome-prod').textContent,
-            preco: button.parentNode.querySelector('.preco-prod').textContent, 
-            src: `./${imagem.getAttribute('src')}`,
-            quantidade: 1
-        }
-        verificaProduto(produto)
+function adicionaEventorColocarCarrinho(){
+    let buttonColocaCarrinho = document.querySelectorAll('.button-prod')
+    buttonColocaCarrinho.forEach(button => {
+        button.addEventListener('click', ()=>{
+            let imagem;
+            if(button.classList.contains('button-prod-maior')){
+                imagem = button.parentNode.parentNode.querySelector('.img-prod-maior')
+            } else {
+                imagem = button.parentNode.querySelector('.img-prod')
+            }
+            console.log(imagem.getAttribute('src'))
+            const produto = {
+                nome: button.parentNode.querySelector('.nome-prod').textContent,
+                preco: button.parentNode.querySelector('.preco-prod').textContent, 
+                src: `${imagem.getAttribute('src')}`,
+                quantidade: 1
+            }
+            verificaProduto(produto)
         })
-})
+    })
+}
+
+
 function verificaProduto(produto){
     let aux = false;
     produtos.forEach(produtoArray => {

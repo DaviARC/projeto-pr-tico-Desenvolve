@@ -68,11 +68,12 @@ function atualizaTela(){
 function adicionaValorTotal(){
     let valorTotal = 0
     produtos.forEach(produto => {
-        let valor = produto.preco.substring(1);
+        let valor = produto.preco.substring(3);
         let valorSemSimbolo = valor.replace(",", ".")
         let valorNumerico = parseFloat(valorSemSimbolo)
+        console.log(valorNumerico);
         valorTotal += valorNumerico * produto.quantidade
     })
-    console.log(valorTotal)
-    totalPreco.innerHTML = `$${valorTotal}`;
+
+    totalPreco.innerHTML = `${valorTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
 }
