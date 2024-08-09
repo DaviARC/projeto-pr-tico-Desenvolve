@@ -1,12 +1,12 @@
-import categorias from "../models/Categoria";
+import categorias from "../models/Categoria.js";
 import { v4 as uuidv4 } from 'uuid';
 
 class CategoriaController {
     static listarCategorias = async (req, res, next) => {
         try{
-            const categoriasResultado = categorias.find();
+            const categoriasResultado = await categorias.find();
             
-            res.status(200).send(categoriasResultado.toJSON());
+            res.status(200).json(categoriasResultado);
         } catch (e) {
             console.log(e)
         }
@@ -15,16 +15,16 @@ class CategoriaController {
     static listarCategoriaPorId = async (req, res, next) => {
         try {
             const id = req.params.id;
-            const categoriaResultado = categorias.findById(id);
+            const categoriaResultado = await categorias.findById(id);
 
-            res.status(200).send(categoriaResultado.toJSON());
+            res.status(200).json(categoriaResultado);
         } catch (error) {
             console.log(error)
         }
     }
 
     static cadastrarCategoria = async (req, res, next) => {
-        let categoria = new categorias({...req.body, id: uuidv4()});
+        let categoria = new categorias(req.body);
 
         const categoriaResultado = await categoria.save();
         res.status(201).send(categoriaResultado.toJSON())

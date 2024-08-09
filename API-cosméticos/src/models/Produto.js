@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 
 const produtoSchema = mongoose.Schema({
-    id: {type: String},
     nome: {
         type: String,
-        required: [true, "O nome do produto é obrigatório"]
+        required: [true, "O nome do produto é obrigatório"],
+        unique: [true, "Já existe um produto com esse nome"]
     },
     preco: {
-        type: Number 
+        type: Number ,
+        required: [true, "O preço do produto é obrigatório"]
     },
     categoria: {
         type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +18,7 @@ const produtoSchema = mongoose.Schema({
     img: {
         type: String
     }
-})
+}, { versionKey: false })
 
 const produtos = mongoose.model("produtos", produtoSchema);
 

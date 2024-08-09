@@ -1,17 +1,16 @@
 import mongoose from "mongoose";
 
 const usuarioSchema = mongoose.Schema({
-    id: {type: String},
     login: {
         type: String,
-        required: [true, "O nome do produto é obrigatório"]
+        required: [true, "O nome do produto é obrigatório"],
+        unique: true
     },
     password: {
         type: String,
         required: [true, "O nome do produto é obrigatório"],
-        unique: true,
     },
-})
+}, { versionKey: false })
 
 const usuarios = mongoose.model("usuarios", usuarioSchema);
 

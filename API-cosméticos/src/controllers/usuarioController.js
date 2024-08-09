@@ -1,59 +1,59 @@
-import usuarios from "../models/usuario";
+import usuarios from "../models/usuario.js";
 import { v4 as uuidv4 } from 'uuid';
 
-class CategoriaController {
-    static listarCategorias = async (req, res, next) => {
+class UsuarioController {
+    static listarUsuarios = async (req, res, next) => {
         try{
-            const categoriasResultado = categorias.find();
+            const usuariosResultado = await usuarios.find();
             
-            res.status(200).send(categoriasResultado.toJSON());
+            res.status(200).json(usuariosResultado);
         } catch (e) {
             console.log(e)
         }
     }
 
-    static listarCategoriaPorId = async (req, res, next) => {
+    static listarUsuarioPorId = async (req, res, next) => {
         try {
             const id = req.params.id;
-            const categoriaResultado = categorias.findById(id);
+            const usuarioResultado = await usuarios.findById(id);
 
-            res.status(200).send(categoriaResultado.toJSON());
+            res.status(200).json(usuarioResultado);
         } catch (error) {
             console.log(error)
         }
     }
 
-    static cadastrarCategoria = async (req, res, next) => {
-        let categoria = new categorias({...req.body, id: uuidv4()});
+    static cadastrarUsuario = async (req, res, next) => {
+        let usuario = new usuarios(req.body);
 
-        const categoriaResultado = await categoria.save();
-        res.status(201).send(categoriaResultado.toJSON())
+        const usuarioResultado = await usuario.save();
+        res.status(201).send(usuarioResultado.toJSON())
     }
 
-    static atualizarCategoria = async (req, res, next) => {
+    static atualizarUsuario = async (req, res, next) => {
         try {
             const id = req.params.id;
-            const categoriaResultado = await categorias.findById(id);
+            const usuarioResultado = await usuarios.findById(id);
 
-            if(categoriaResultado){
-                await categorias.findByIdAndUpdate(id, {$set: req.body});
-                res.status(200).send({message: "Categoria atualizado com sucesso"});
+            if(usuarioResultado){
+                await usuarios.findByIdAndUpdate(id, {$set: req.body});
+                res.status(200).send({message: "usuario atualizado com sucesso"});
             } else {
-                res.status(401).send({message: "O id do categoria não localizado"})
+                res.status(401).send({message: "O id do usuario não localizado"})
             }
 
         } catch (error) {
             console.log(error)
         }
     }
-    static excluirCategoria = async (req, res, next) => {
+    static excluirUsuario = async (req, res, next) => {
         try {
             const id = req.params.id;
-            const categoriaResultado = await categorias.findById(id);
+            const usuarioResultado = await usuarios.findById(id);
 
-            if(categoriaResultado){
-                await categorias.findByIdAndDelete(id);
-                res.status(200).send({message: "Categoria removida com sucesso"});
+            if(usuarioResultado){
+                await usuarios.findByIdAndDelete(id);
+                res.status(200).send({message: "usuario removida com sucesso"});
             }
 
         } catch (error) {
@@ -62,4 +62,4 @@ class CategoriaController {
     }
 }
 
-export default CategoriaController;
+export default UsuarioController;

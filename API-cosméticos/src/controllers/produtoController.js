@@ -1,12 +1,12 @@
-import produtos from "../models/Produto";
+import produtos from "../models/Produto.js";
 import { v4 as uuidv4 } from 'uuid';
 
 class ProdutoController {
-    static listarCProduto = async (req, res, next) => {
+    static listarProduto = async (req, res, next) => {
         try{
-            const produtosResultado = produtos.find();
+            const produtosResultado = await produtos.find();
             
-            res.status(200).send(produtosResultado.toJSON());
+            res.status(200).json(produtosResultado);
         } catch (e) {
             console.log(e)
         }
@@ -15,19 +15,25 @@ class ProdutoController {
     static listarProdutoPorId = async (req, res, next) => {
         try {
             const id = req.params.id;
-            const produtoResultado = produtos.findById(id);
+            const produtoResultado = await produtos.findById(id);
 
-            res.status(200).send(produtoResultado.toJSON());
+            res.status(200).json(produtoResultado);
         } catch (error) {
             console.log(error)
         }
     }
 
     static cadastrarProduto = async (req, res, next) => {
-        let produto = new produtos({...req.body, id: uuidv4()});
+        try{
+            let produto = new produtos(req.body);
+    
+            const produtoResultado = await produto.save();
 
-        const produtoResultado = await produto.save();
-        res.status(201).send(produtoResultado.toJSON())
+            res.status(201).send(produtoResultado.toJSON())
+        }
+        catch (error){
+            console.log(error)
+        }
     }
 
     static atualizarProduto = async (req, res, next) => {
