@@ -27,7 +27,7 @@ class CategoriaController {
         let categoria = new categorias(req.body);
 
         const categoriaResultado = await categoria.save();
-        res.status(201).send(categoriaResultado.toJSON())
+        res.status(201).json(categoriaResultado)
     }
 
     static atualizarCategoria = async (req, res, next) => {

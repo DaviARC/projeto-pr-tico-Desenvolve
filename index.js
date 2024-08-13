@@ -31,7 +31,6 @@ function adicionaEventorColocarCarrinho(){
             } else {
                 imagem = button.parentNode.querySelector('.img-prod')
             }
-            console.log(imagem.getAttribute('src'))
             const produto = {
                 nome: button.parentNode.querySelector('.nome-prod').textContent,
                 preco: button.parentNode.querySelector('.preco-prod').textContent, 

@@ -29,7 +29,7 @@ class ProdutoController {
     
             const produtoResultado = await produto.save();
 
-            res.status(201).send(produtoResultado.toJSON())
+            res.status(201).json(produtoResultado)
         }
         catch (error){
             console.log(error)
